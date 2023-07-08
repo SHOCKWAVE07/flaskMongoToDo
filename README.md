@@ -25,10 +25,10 @@ The project aims to develop a Todo application using the Flask web framework and
 
 ## Technical Stack:
 
-Flask: A lightweight web framework for Python.
-Database: MongoDB(Atlas)
-PyMongo: An Object-Document Mapping (ODM) library for database management.
-Jinja: A templating engine for rendering dynamic web pages.
+Flask: A lightweight web framework for Python.<br>
+Database: MongoDB(Atlas)<br>
+PyMongo: An Object-Document Mapping (ODM) library for database management.<br>
+Jinja: A templating engine for rendering dynamic web pages.<br>
 Python: The programming language used for the back-end logic.
 
 The Flask Notes Web Application aims to provide users with a user-friendly and efficient platform for note-taking and organization. With its extensive set of features and a robust technical stack, it empowers users to stay organized, collaborate, and easily access their notes from any device with an internet connection.
