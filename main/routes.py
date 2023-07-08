@@ -1,12 +1,12 @@
 
 
-from application import app,db
+from main import application,db
 from flask import render_template,flash,request,redirect,url_for
 from .forms import TodoForm
 from datetime import datetime
 from bson import ObjectId
 
-@app.route("/")
+@application.route("/")
 def get_todos():
     todos = []
     for todo in db.todos_flask.find().sort("date_created",-1):
@@ -15,7 +15,7 @@ def get_todos():
         todos.append(todo)
     return render_template("views_todo.html",title="Layout page", todos=todos)
 
-@app.route("/add_todo", methods = ['POST', 'GET'])
+@application.route("/add_todo", methods = ['POST', 'GET'])
 def add_todo():
     if request.method == "POST":
         form = TodoForm(request.form)
@@ -35,7 +35,7 @@ def add_todo():
         form = TodoForm()
     return render_template("add_todo.html", form = form)
 
-@app.route("/update_todo/<id>", methods=["POST","GET"])
+@application.route("/update_todo/<id>", methods=["POST","GET"])
 def update_todo(id):
     if request.method== "POST":
         form = TodoForm(request.form)
@@ -61,7 +61,7 @@ def update_todo(id):
 
     return render_template("add_todo.html",form=form)
 
-@app.route("/delete_todo/<id>")
+@application.route("/delete_todo/<id>")
 def delete_todo(id):
     db.todos_flask.find_one_and_delete({"_id":ObjectId(id)})
     flash("Todo deleted successfully" , "success")
